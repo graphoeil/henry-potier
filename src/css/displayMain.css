@@ -1,0 +1,223 @@
+@charset "UTF-8";
+/* CSS Document */
+@import url(reset.min.css);
+@import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Source+Serif+Pro:wght@400;600&display=swap');
+
+/* /////////////////////////////// */
+/*               BODY              */
+/* /////////////////////////////// */
+body,html{ min-height: 100%; height: 100%; }
+*{ box-sizing: border-box; text-decoration: none; outline: none; }
+#root{ min-height: 100%; height: 100%; }
+
+/* /////////////////////////////// */
+/*          TYPOS & COULEURS       */
+/* /////////////////////////////// */
+/*
+font-family: 'Berkshire Swash', cursive;
+font-family: 'Source Serif Pro', serif;
+Source dispo 400 et 600
+Gris bleu : 77868b
+Jaune : ffe390
+*/
+
+/* /////////////////////////////// */
+/*            RECHERCHE            */
+/* /////////////////////////////// */
+.recherche{ position: fixed; top: -32px; left: 5px; width: 215px; transition: 0.35s top ease-in-out, 0.35s box-shadow ease-in-out; z-index: 9; }
+.recherche.ouverte{ top: 0; }
+.champRecherche{ width: 100%; padding: 7px; background-color: #77868b; }
+.champRecherche input{ display: block; width: 100%; background: transparent; border: none; font-family: 'Source Serif Pro', serif;
+	font-size: 15px; font-weight: 400; color: #ffe390; }
+.btnLoupe{ position: absolute; left: 10px; top: 35px; width: 50px; height: 50px; cursor: pointer; }
+.innerLoupe{ position: absolute; left: 50%; top: 0; transform: translateX(-50%); width: 35px; height: 35px; padding: 7px; background-color: #77868b; }
+/* placeholder */
+::-webkit-input-placeholder{ color:rgba(255, 234, 167, 0.7); }
+::-moz-placeholder{ color:rgba(255, 234, 167, 0.7); }
+:-ms-input-placeholder{ color:rgba(255, 234, 167, 0.7); }
+:-moz-placeholder{ color:rgba(255, 234, 167, 0.7); }
+
+/* /////////////////////////////// */
+/*              PANIER             */
+/* /////////////////////////////// */
+/* Bouton panier */
+.btnPanier{ position: fixed; top: 0; right: 0; width: 50px; height: 50px; cursor: pointer; z-index: 9; }
+.innerBtnPanier{ height: 35px; background-color: #77868b; padding: 7px 0; text-align: center; }
+.innerBtnPanier span{ display: inline-block; padding: 0 5px 0 0; color: #ffe390; font-size: 15px; vertical-align: middle; }
+.innerBtnPanier img{ width: 23px; vertical-align: middle; }
+/* Panier */
+
+/* /////////////////////////////// */
+/*               TITRE             */
+/* /////////////////////////////// */
+.titre{ width: 100%; max-width: 1366px; margin: 0 auto; padding: 65px 30px 40px 30px; text-align: center; }
+.titre h1{ font-family: 'Berkshire Swash', cursive; font-size: 30px; line-height: 1.3em; color: #77868b; letter-spacing: 1px; }
+
+/* /////////////////////////////// */
+/*              GALERIE            */
+/* /////////////////////////////// */
+.galerie{ width: 100%; max-width: 1366px; margin: 0 auto; padding: 0 20px; }
+.livre{ position: relative; width: 200px; margin: 0 auto 40px auto; opacity: 0; transition: 0.5s opacity ease-in-out; }
+.livre.visible{ opacity: 1; }
+.couvertureLivre{ width: 100%; height: 100%; overflow: hidden; }
+.couvertureLivre img{ width: 100%; height: 100%; object-fit: cover; }
+.boutonsLivre{ position: absolute; width: 120px; bottom: -25px; left: 50%; transform: translateX(-50%); text-align: center; }
+.btnPoubelleLivre, .btnPanierLivre, .btnDetailLivre{ display: inline-block; position: relative; width: 55px; height: 55px; padding: 10px;
+	vertical-align: middle; cursor: pointer; }
+.btnPoubelleLivre, .btnPanierLivre{ margin: 0 10px 0 0; }
+.btnPoubelleLivre img, .btnDetailLivre img{ height: 19px; }
+.innerBouton{ width: 35px; height: 35px; background-color: #77868b; }
+.btnPoubelleLivre .innerBouton{ background-color: firebrick; }
+.btnPanierLivre .innerBouton{ padding: 7px; }
+.btnPoubelleLivre .innerBouton, .btnDetailLivre .innerBouton{ padding: 7px 5px 5px 5px; }
+/* noResults */
+.noResults{ width: 100%; max-width: 1366px; margin: 0 auto 60px auto; text-align: center; padding: 30px; }
+.noResults p{ font-family: 'Source Serif Pro', serif; font-size: 15px; line-height: 1.4em; color: #77868b; }
+
+/* /////////////////////////////// */
+/*               PAGE              */
+/* /////////////////////////////// */
+.page{ display: none; position: fixed; top: 0; left: 0; width: 100%; min-height: 100%; background-color: #77868b; 
+	font-family: 'Source Serif Pro', serif; color: #ffe390; z-index: 999; }
+.btnFermePage{ position: absolute; top: 0; right: 0; width: 55px; height: 55px; padding: 10px; cursor: pointer; z-index: 9; }
+.innerFermePage{ width: 35px; height: 35px; padding: 7px; background-color: #77868b; }
+.innerFermePage img{ display: block; width: 100%; height: 100%; object-fit: cover; }
+.innerPage{ position: absolute; overflow-y: scroll; height: 100%; width: 100%; padding: 10px; }
+.couverturePage{ position: relative; width: 100%; max-width: 450px; margin: 0 auto 40px auto; }
+.couvertureImg{ overflow: hidden; }
+.couvertureImg img{ width: 100%; height: 100%; object-fit: cover; }
+.page .innerBouton{ border: 1px solid #ffe390 !important; }
+.textePage{ width: 100%; max-width: 1366px; margin: 0 auto; column-count: 1; column-gap: 0; font-size: 16px; 
+	text-align: justify; line-height: 1.6em; }
+.prixISBN{ width: 100%; max-width: 1366px; margin: 20px auto 0 auto; text-align: right; }
+.prixISBN span{ display: block; font-size: 16px; margin: 0 0 5px 0; }
+.prixISBN span b{ font-weight: 600; }
+
+/* /////////////////////////////// */
+/*              PANIER             */
+/* /////////////////////////////// */
+.panier{ display: block; position: fixed; top: 0; right: -300px; width: 300px; min-height: 100%; background-color: white; 
+	box-shadow: -3px 0 10px rgba(0, 0, 0, 0.7), -3px 0 10px rgba(0, 0, 0, 0.7); z-index: 99; }
+.innerPanier{ position: absolute; overflow-y: scroll; height: 100%; width: 100%; padding: 10px; }
+.btnFermePanier{ position: absolute; top: 0; right: 0; width: 55px; height: 55px; padding: 10px; cursor: pointer; }
+.innerFermePanier{ width: 35px; height: 35px; padding: 7px; }
+.innerFermePanier img{ display: block; width: 100%; height: 100%; object-fit: cover; }
+.innerPanier h3{ display: block; width: 100%; margin: 10px 0 20px 0; font-family: 'Berkshire Swash', cursive; color: #77868b; font-size: 20px;
+	text-align: center; }
+.panierDetail{ font-family: 'Source Serif Pro', serif; }
+.panierArticle{ position: relative; margin: 0 0 30px 0; }
+.panierDetail .panierArticle:last-child{ margin: 0 0 40px 0; }
+.prixPanier{ position: absolute; top: 0; right: 0; background-color: white; color: firebrick; padding: 10px; font-size: 16px; }
+.couverturePanier{ overflow: hidden; }
+.couverturePanier img{ display: block; width: 100%; height: 100%; object-fit: cover; }
+.btnPoubellePanier{ position: absolute; left: 50%; bottom: -25px; transform: translateX(-50%); width: 55px; height: 55px; padding: 10px; text-align: center; cursor: pointer; }
+.btnPoubellePanier .innerBouton{ width: 35px; height: 35px; padding: 7px 5px 5px 5px; background-color: firebrick; }
+.btnPoubellePanier .innerBouton img{ height: 19px; }
+.recapitulatifPanier{ padding: 10px; background-color: white; font-family: 'Source Serif Pro', serif; font-size: 16px; 
+	color: #77868b; line-height: 1.4em; text-align: right; }
+.recapitulatifPanier span{ color: firebrick; }
+.panierVide{ padding: 10px; background-color: white; font-family: 'Source Serif Pro', serif; font-size: 16px; color: #77868b; text-align: center; }
+
+/* /////////////////////////////// */
+/*              FOOTER             */
+/* /////////////////////////////// */
+footer{ width: 100%; margin: 40px 0 0 0; padding: 20px 10px 40px 10px; font-family: 'Source Serif Pro', serif; color: #77868b; text-align: center; }
+footer b{ font-weight: 600; }
+
+/* /////////////////////////////// */
+/*     >= 375px | iPhone 6,7,8     */
+/* /////////////////////////////// */
+@media only screen and (min-width: 375px){
+	/* Recherche */
+	.recherche{ left: 10px; }
+	/* Titre */
+	.titre{ padding: 65px 65px 40px 65px; }
+	/* Galerie */
+	.livre{ width: 240px; }
+	.noResults{ padding: 30px 70px; }
+	/* Page */
+	.innerPage{ padding: 20px; }
+	.textePage{ font-size: 17px; }
+}
+
+/* /////////////////////////////// */
+/*     >= 768px | iPad portrait    */
+/* /////////////////////////////// */
+@media only screen and (min-width: 768px){
+	/* Recherche */
+	.recherche{ top: -33px; width: 350px; }
+	.champRecherche input{ font-size: 17px; }
+	/* Titre */
+	.titre{ padding: 80px 65px 50px 65px; }
+	.titre h1{ font-size: 36px; }
+	/* Galerie */
+	.galerie{ display: -ms-flexbox; display: -webkit-flex; display: flex;
+		-webkit-flex-direction: row; -ms-flex-direction: row; flex-direction: row;
+		-webkit-flex-wrap: wrap; -ms-flex-wrap: wrap; flex-wrap: wrap;
+		-webkit-justify-content: center; -ms-flex-pack: center; justify-content: center;
+		-webkit-align-content: stretch; -ms-flex-line-pack: stretch; align-content: stretch;
+		-webkit-align-items: stretch; -ms-flex-align: stretch; align-items: stretch; }
+	.livre{ width: 225px; margin: 0 8px 45px 8px; }
+	.noResults p{ font-size: 17px; }
+	/* Page */
+	.couverturePage{ margin-bottom: 40px; }
+	.textePage{ font-size: 18px; line-height: 1.6em; }
+}
+
+/* /////////////////////////////// */
+/*   >= 812px | iphoneX paysage    */
+/* /////////////////////////////// */
+@media only screen and (min-width: 812px) and (orientation: landscape){}
+
+/* /////////////////////////////// */
+/*   >= 1024px | iPadPro portrait  */
+/* /////////////////////////////// */
+@media only screen and (min-width: 1024px) and (orientation: portrait){
+	/* Recherche */
+	.recherche{ width: 450px; }
+	/* Titre */
+	.titre{ padding: 80px 220px 50px 220px; }
+	.titre h1{ font-size: 60px; }
+	/* Galerie */
+	.livre{ width: 280px; margin: 0 20px 65px 20px; }
+	/* Page */
+	.innerPage{ padding: 40px; }
+	.textePage{ column-count: 2; column-gap: 40px; font-size: 20px; line-height: 2em; }
+}
+
+/* /////////////////////////////// */
+/*     >= 1024px | iPad paysage    */
+/* /////////////////////////////// */
+@media only screen and (min-width: 1024px) and (orientation: landscape){
+	/* Recherche */
+	.recherche{ width: 450px; }
+	/* Titre */
+	.titre h1{ font-size: 48px; }
+	/* Galerie */
+	.livre{ width: 280px; margin: 0 20px 45px 20px; }
+	/* Page */
+	.innerPage{ padding: 20px 40px; }
+	.textePage{ column-count: 2; column-gap: 40px; }
+}
+
+/* /////////////////////////////// */
+/*  >= 1366px | iPadPro & Laptop   */
+/* /////////////////////////////// */
+@media only screen and (min-width: 1366px){
+	/* Recherche */
+	.recherche{ width: 500px; }
+	/* Titre */
+	.titre h1{ font-size: 60px; }
+	/* Galerie */
+	.livre{ margin: 0 20px 65px 20px; }
+	html.no-touchevents .innerBouton{ border: 1px solid rgba(255, 227, 144, 0); transition: 0.35s border ease-in-out; }
+	html.no-touchevents .btnPoubelleLivre:hover .innerBouton, .btnPanierLivre:hover .innerBouton, .btnDetailLivre:hover .innerBouton{ border: 1px solid rgba(255, 227, 144, 1); }
+	/* Page */
+	.innerPage{ padding: 40px; }
+	.textePage{ font-size: 20px; line-height: 2em; }
+	.innerPage { -ms-overflow-style: none; scrollbar-width: none; }
+	.innerPage::-webkit-scrollbar { display: none; }
+	/* Panier */
+	.innerPanier { -ms-overflow-style: none; scrollbar-width: none; }
+	.innerPanier::-webkit-scrollbar { display: none; }
+}
